@@ -19,11 +19,11 @@ Built between **11 June and 1 October 2026** — 112 days, 1,587 commits, roughl
 | Core code | 161,317 lines |
 | Test code | 91,808 lines |
 | Test files · passing tests | 909 · 7,931 |
-| Offensive tool modules | 492 |
+| **Offensive tool modules written for the platform** | **492** |
 | Modules behind the authorisation gate | 294 |
 | Deterministic battery phases | 178 |
 | Reasoning-engine action catalogue | 156 specifications, all read-only |
-| Third-party tools wrapped | 87, all open source |
+| Third-party tools wrapped *beneath* those modules | 87, all open source |
 | Engagement profiles | 37 |
 
 Test code is 57% of the volume of the code it protects. That ratio is the point rather than a side
@@ -36,7 +36,7 @@ that proves a detector behaves is part of the deliverable, not overhead.
 |---|---|
 | [SOURCES.md](SOURCES.md) | 237 books, papers and guides · 442 external sources · 16 specifications |
 | [METHOD.md](METHOD.md) | How the work was done — the rules, and the failure each one prevents |
-| [TOOLS.md](TOOLS.md) | The 87 open-source tools studied and integrated |
+| [TOOLS.md](TOOLS.md) | The two layers: 492 modules of our own code, over 87 open-source tools |
 
 ## What this repository deliberately omits
 
