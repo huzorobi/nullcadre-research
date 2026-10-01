@@ -18,9 +18,10 @@ findings, not the evidence, and not the report text. There is no hosted model an
 The deterministic engine decides whether a weakness exists. The hunter reasons about the evidence that
 engine produced and widens coverage. It never issues a verdict.
 
-**[nullcadre.com](https://nullcadre.com)**
+Platform: **[nullcadre.com](https://nullcadre.com)**
+Owner: **[HuzoSecurity Ltd](https://huzosecurity.com)**, Robert Huzo.
 
-Owner: HuzoSecurity Ltd. Counted from the source tree on 2026-10-01.
+Figures counted from the source tree on 2026-10-01.
 
 ---
 
