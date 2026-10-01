@@ -46,7 +46,7 @@ Read for method, not for payloads.
 | The Red Team Guide | Adversarial engagement structure |
 | Certified Ethical Hacker (CEH) Foundation | Certification scope |
 
-## Standards and testing methodologies
+## Standards and testing methods
 
 These set the vocabulary findings are reported in.
 
@@ -54,7 +54,7 @@ These set the vocabulary findings are reported in.
 |---|---|
 | OWASP API Security Top 10 | API weakness classification, including authorisation |
 | OWASP Web Security Testing Guide v4.2 | Coverage checklist for a web assessment |
-| OWASP Testing Guide v4 | Earlier methodology baseline |
+| OWASP Testing Guide v4 | Earlier baseline |
 | CWE | Weakness identifiers carried on every finding |
 | CVSS | Severity scoring, aligned to disclosed impact |
 | PTES | Engagement phase structure |

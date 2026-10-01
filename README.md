@@ -45,8 +45,8 @@ that proves a detector behaves is part of the deliverable, not overhead.
 
 This repository publishes the research and the method. The implementation stays with its owner.
 
-That division is deliberate and complete: what is here is what a reader needs in order to judge the
-work, and what is not here is what someone would need in order to copy it. The platform cannot be
+That division is deliberate and complete: what is here is what a reader needs to judge the
+work, and what is not here is what someone would need to copy it. The platform cannot be
 rebuilt from this repository, and it is not intended to be.
 
 - **Techniques and tactics stay closed.** The weakness classes studied are named, because that is
