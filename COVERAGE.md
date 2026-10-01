@@ -75,6 +75,20 @@ Race conditions and time-of-check-to-time-of-use flaws. Cloud storage and backen
 Container and orchestration posture. Exposed service and management-interface discovery. Secret exposure in
 source, artefacts and client-side code. Business-logic and workflow abuse.
 
+## The hunter
+
+The deterministic battery is the floor. The hunter is a second pass that takes its findings as leads and
+looks for what a fixed battery cannot reach: the chain that forms when two ordinary findings are combined,
+the surface a template did not anticipate, the follow-up a human tester would try next.
+
+It runs on a local model, inside the operator's estate. No client data is sent to a hosted service at any
+point, including when the report is written.
+
+Three limits hold it. It chooses only from a fixed catalogue of read-only actions, enforced in code, so an
+action outside that catalogue cannot be taken whatever the model proposes. It stops at proof and never
+escalates. And it does not decide anything: a lead it raises becomes a finding only when a deterministic
+check confirms it.
+
 ## From finding to report
 
 Impact scoring aligned to what was disclosed. Attack-chain synthesis, linking findings that compose into a

@@ -10,10 +10,13 @@ to rebuild the platform.
 launches every run and confirms any exploitation. The software never decides on its own what to
 test or whom to test it against.
 
-**The reasoning model runs locally, on the operator's own hardware.** Nothing about a client's
-systems is sent to a hosted model, including when a report is written. The deterministic engine
-decides whether a weakness exists; the local model reasons about the evidence that engine produced
-and deepens coverage, and it never issues a verdict.
+**The hunter runs on a local model, on the operator's own hardware.** The hunter is the AI pass that
+takes the deterministic battery's findings as leads and deepens the search. It runs on a model hosted
+inside the operator's estate, so no client data reaches a third party: not the attack surface, not the
+findings, not the evidence, and not the report text. There is no hosted model anywhere in the loop.
+
+The deterministic engine decides whether a weakness exists. The hunter reasons about the evidence that
+engine produced and widens coverage. It never issues a verdict.
 
 **[nullcadre.com](https://nullcadre.com)**
 
