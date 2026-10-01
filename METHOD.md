@@ -78,8 +78,12 @@ list and is the reason the platform's output can be handed to a client.
 - **Testing stops at proof.** The platform demonstrates a weakness and collects evidence; it does not
   escalate, persist, or move laterally. That ceiling is deliberate, and it is what makes the output
   usable by buyers in regulated sectors.
-- **The reasoning model runs locally.** Information about a client's systems does not leave the
-  operator's estate, including for report writing.
+- **The operator stays in the loop.** Scope is defined and authorised by a person, every run is
+  launched by a person, and any exploitation is confirmed by a person. The platform is assistive.
+  It is not an autonomous agent, and it is not designed to become one.
+- **The reasoning model runs locally**, on the operator's own hardware. Information about a client's
+  systems does not leave the operator's estate, including for report writing. A hosted model would
+  mean sending a client's attack surface to a third party, which no engagement letter permits.
 - **Reports state what was not tested.** Coverage is stated honestly or the report is
   not finished.
 
