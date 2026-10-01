@@ -34,11 +34,10 @@ Built between **11 June and 1 October 2026**: 112 days, 1,587 commits, roughly 2
 | Core code | 161,317 lines |
 | Test code | 91,808 lines |
 | Test files · passing tests | 909 · 7,931 |
-| **Offensive tool modules written for the platform** | **492** |
+| **Offensive tool modules** | **492** |
 | Modules behind the authorisation gate | 294 |
 | Deterministic battery phases | 178 |
 | Reasoning-engine action catalogue | 156 specifications, all read-only |
-| Third-party tools wrapped *beneath* those modules | 87, all open source |
 | Engagement profiles | 37 |
 
 **Measured false-positive rate: 0 to 5 per cent**, with one authenticated engagement producing 63
@@ -54,7 +53,7 @@ that proves a detector behaves is part of the deliverable, not overhead.
 |---|---|
 | [SOURCES.md](SOURCES.md) | 237 books, papers and guides · 442 external sources · 16 specifications |
 | [METHOD.md](METHOD.md) | How the work was done: the rules, and the failure each one prevents |
-| [TOOLS.md](TOOLS.md) | The two layers: 492 modules of our own code, over 87 open-source tools |
+| [TOOLS.md](TOOLS.md) | The 492 modules, and the open-source tools they drive |
 | [COVERAGE.md](COVERAGE.md) | What the platform tests for, by weakness class |
 
 ## Scope of this repository
