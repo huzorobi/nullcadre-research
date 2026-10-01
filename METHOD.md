@@ -33,6 +33,36 @@ Each is now enforced by a test rather than by intention.
 - **Nothing is described as fixed.** An external tester cannot see a patch. The strongest honest claim
   is that a weakness was not rediscovered using the original method and a stated set of variants.
 
+## The false-positive problem, and the cost of solving it
+
+This is where most of the engineering time went, and it is the result the platform is actually judged on.
+
+**The measured false-positive rate is 0 to 5 per cent.** On one authenticated engagement the run produced
+63 findings with zero false positives. That number is not a tuning setting; it is the output of a standing
+invariant and a great many hours of chasing individual wrong answers to their root cause instead of
+suppressing them.
+
+The invariant: **no detector ships until it is proven silent on a benign input.** 71 detectors are
+currently pinned that way in the test suite — each paired with a known-clean case and failing CI if it
+ever speaks when it should not. The rule exists because a detector's false-positive behaviour is
+otherwise discovered on a client's live target, which is the most expensive place to find it and the one
+place it cannot be undone.
+
+Two refinements were learned the hard way and now apply to every check:
+
+- **A fixture that is silent because nothing ran proves nothing.** Several checks appeared to behave
+  until it emerged that their preconditions had failed, so the quiet was absence of testing rather than
+  absence of a flaw. Every clean fixture now asserts the detector genuinely executed before it asserts
+  the detector stayed quiet.
+- **A guard must be able to fire and able to stay quiet.** Each is tested against the exact defect it
+  exists to catch *and* against a case that must not trigger it, because a guard that cries wolf teaches
+  the reader to ignore it — the same damage as a false all-clear, pointing the other way.
+
+Reaching single-digit false positives took far longer than reaching coverage. Coverage is additive: a new
+check adds a class. Precision is not: every wrong answer has to be traced to the assumption that produced
+it, and the fix verified against the engagements that exposed it. That work is invisible in a feature
+list and is the reason the platform's output can be handed to a client.
+
 ## Written is not working
 
 - **A module that is finished, tested and exported is still dead code** until a real entry point
