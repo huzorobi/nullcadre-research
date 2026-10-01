@@ -1,7 +1,7 @@
 # Sources
 
 237 books, papers and guides; 442 distinct external sources cited across the research; 16
-specifications read in the original. Assembled July–October 2026.
+specifications read in the original. Assembled between July and October 2026.
 
 ---
 
@@ -75,15 +75,15 @@ evidence it produced.
 
 **Can language-model agents conduct penetration tests autonomously?**
 
-- PentestGPT — an LLM-empowered automatic penetration testing tool
-- PentestAgent — incorporating LLM agents into automated penetration testing
-- RapidPen — fully automated IP-to-shell penetration testing with LLM-based agents
-- PhantomRed — an autonomous AI-powered penetration testing framework
-- COAPT — bridging the semantic-operational divide in autonomous testing
-- HARMer — cyber-attack automation and evaluation
+- PentestGPT: an LLM-empowered automatic penetration testing tool
+- PentestAgent: incorporating LLM agents into automated penetration testing
+- RapidPen: fully automated IP-to-shell penetration testing with LLM-based agents
+- PhantomRed: an autonomous AI-powered penetration testing framework
+- COAPT: bridging the semantic-operational divide in autonomous testing
+- HARMer: cyber-attack automation and evaluation
 - Teams of LLM agents can exploit zero-day vulnerabilities
 - From controlled to the wild: evaluation of pentesting agents
-- AWE — adaptive agents for dynamic web environments
+- AWE: adaptive agents for dynamic web environments
 - Evaluating large language models' ability to automate security testing
 - The rise and rise of LLM-powered pentesting
 - AI-driven penetration testing for ARM systems: evaluation across four paradigms
@@ -106,9 +106,9 @@ evidence it produced.
 - Prompt injection detection in LLM-integrated applications
 - Prompt injection: risks and defence mechanisms
 - Securing large language models from adversarial input
-- HoneyLLM — a large-language-model-powered honeypot
+- HoneyLLM: a large-language-model-powered honeypot
 - Enhancing security and applicability of local LLM-based systems
-- ForensicLLM — a local large language model (Forensic Science International)
+- ForensicLLM: a local large language model (Forensic Science International)
 
 **What is the shape of the offensive-AI threat?**
 
@@ -118,8 +118,8 @@ systematic reviews of generative AI in offensive and defensive roles.
 
 ## Weakness classes studied
 
-The practitioner corpus is 47 published guides, one per class. It was read to establish *coverage* —
-which classes a credible assessment is expected to attempt, so that gaps can be named rather than left
+The practitioner corpus is 47 published guides, one per class. It was read to establish *coverage*:
+which classes a credible assessment is expected to attempt, so that gaps can be named instead of left
 silent.
 
 - Server-side request forgery, including generator-specific and framework-specific variants
@@ -162,7 +162,7 @@ publicly disclosed vulnerability reports.
 ## Specifications read in the original
 
 Primary specifications were read where a test's correctness depends on what a protocol actually
-permits, rather than on what a scanner assumes.
+permits, not on what a scanner assumes.
 
 | Specification | Why it was needed |
 |---|---|
@@ -181,5 +181,5 @@ permits, rather than on what a scanner assumes.
 
 Vendor documentation for web servers, application frameworks, edge proxies and browsers was read on the
 same principle: where a test's correctness depends on exactly how a component behaves, that behaviour
-is read from the specification rather than assumed. A test built on an assumption produces a confident
+is read from the specification, never assumed. A test built on an assumption produces a confident
 wrong answer, which is worse than no test.

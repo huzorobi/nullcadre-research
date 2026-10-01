@@ -1,4 +1,4 @@
-# NullCadre — Research Library
+# NullCadre Research Library
 
 **What informed the build of an AI-assisted platform for authorised penetration testing.**
 
@@ -12,7 +12,7 @@ Owner: HuzoSecurity Ltd. Counted from the source tree on 2026-10-01.
 
 ## The work
 
-Built between **11 June and 1 October 2026** — 112 days, 1,587 commits, roughly 253,000 lines of code.
+Built between **11 June and 1 October 2026**: 112 days, 1,587 commits, roughly 253,000 lines of code.
 
 | | |
 |---|---|
@@ -28,10 +28,9 @@ Built between **11 June and 1 October 2026** — 112 days, 1,587 commits, roughl
 
 **Measured false-positive rate: 0 to 5 per cent**, with one authenticated engagement producing 63
 findings and zero false positives. 71 detectors are pinned in the test suite as provably silent on benign
-input. Reaching that took longer than reaching coverage — see [METHOD.md](METHOD.md).
+input. Reaching that took longer than reaching coverage. See [METHOD.md](METHOD.md).
 
-Test code is 57% of the volume of the code it protects. That ratio is the point rather than a side
-effect: in this domain a wrong answer delivered confidently is worse than no answer, so the harness
+Test code is 57% of the volume of the code it protects. That ratio is deliberate: in this domain a wrong answer delivered confidently is worse than no answer, so the harness
 that proves a detector behaves is part of the deliverable, not overhead.
 
 ## The library
@@ -39,7 +38,7 @@ that proves a detector behaves is part of the deliverable, not overhead.
 | Document | Contents |
 |---|---|
 | [SOURCES.md](SOURCES.md) | 237 books, papers and guides · 442 external sources · 16 specifications |
-| [METHOD.md](METHOD.md) | How the work was done — the rules, and the failure each one prevents |
+| [METHOD.md](METHOD.md) | How the work was done: the rules, and the failure each one prevents |
 | [TOOLS.md](TOOLS.md) | The two layers: 492 modules of our own code, over 87 open-source tools |
 
 ## Scope of this repository
@@ -51,8 +50,8 @@ work, and what is not here is what someone would need in order to copy it. The p
 rebuilt from this repository, and it is not intended to be.
 
 - **Techniques and tactics stay closed.** The weakness classes studied are named, because that is
-  what establishes coverage. How the platform tests them — payloads, logic, bypass families, verdict
-  rules — is not described.
+  what establishes coverage. The way the platform tests them is not described, and neither are payloads,
+  logic, bypass families or verdict rules.
 - **The platform's own code stays closed.** Its 492 modules are counted, never named or described: no
   source, no logic, no thresholds, no sequencing, no decision rules.
 - **Orchestration stays closed.** The 87 third-party tools are listed because they are public software

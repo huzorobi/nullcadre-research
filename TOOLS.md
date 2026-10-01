@@ -4,7 +4,7 @@
 because they can reach a live target, driven by a catalogue of 156 read-only action specifications.
 That is the platform.
 
-Beneath those sit **87 third-party binaries** — this page. They were read, evaluated, and wrapped behind
+Beneath those sit the **87 third-party binaries** listed on this page. They were read, evaluated and wrapped behind
 a single interface so that each exposes version, health, capabilities, structured output, errors,
 timeouts, cancellation and evidence uniformly. They are the commodity layer: anyone can install them.
 
@@ -33,9 +33,9 @@ reports nothing, and nothing reads exactly like a clean result.
 | Cloud and infrastructure posture | trivy · prowler · checkov |
 | Vulnerability intelligence | cvemap · searchsploit |
 
-Vulnerability-intelligence feeds were integrated on the same terms — the national vulnerability
+Vulnerability-intelligence feeds were integrated on the same terms. They include the national vulnerability
 database, the known-exploited-vulnerabilities catalogue, exploit-prediction scoring and public exploit
-archives — so that a version match is checked against an actual advisory rather than asserted from a
+archives, so that a version match is checked against an actual advisory instead of asserted from a
 banner.
 
 ---
@@ -43,6 +43,6 @@ banner.
 ## What is not described here
 
 These tools are the commodity layer: anyone can install them, and listing them gives nothing away. The
-contribution sits above them — enforced scope validation, deterministic validation of every finding, a
+contribution sits above them: enforced scope validation, deterministic validation of every finding, a
 confirmation-grade ceiling, and honest coverage reporting. **Which tool feeds which, in what order,
 under what conditions, and how output becomes a verdict is not described.**
