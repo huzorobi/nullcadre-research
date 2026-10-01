@@ -26,6 +26,10 @@ Built between **11 June and 1 October 2026** — 112 days, 1,587 commits, roughl
 | Third-party tools wrapped *beneath* those modules | 87, all open source |
 | Engagement profiles | 37 |
 
+**Measured false-positive rate: 0 to 5 per cent**, with one authenticated engagement producing 63
+findings and zero false positives. 71 detectors are pinned in the test suite as provably silent on benign
+input. Reaching that took longer than reaching coverage — see [METHOD.md](METHOD.md).
+
 Test code is 57% of the volume of the code it protects. That ratio is the point rather than a side
 effect: in this domain a wrong answer delivered confidently is worse than no answer, so the harness
 that proves a detector behaves is part of the deliverable, not overhead.
@@ -38,22 +42,25 @@ that proves a detector behaves is part of the deliverable, not overhead.
 | [METHOD.md](METHOD.md) | How the work was done — the rules, and the failure each one prevents |
 | [TOOLS.md](TOOLS.md) | The two layers: 492 modules of our own code, over 87 open-source tools |
 
-## What this repository deliberately omits
+## Scope of this repository
 
-It shows the scale of the work, the sources behind it and the method. It does not describe how any of
-it is implemented. What is published is what a reader needs in order to judge the work; what is
-withheld is what someone would need in order to copy it.
+This repository publishes the research and the method. The implementation stays with its owner.
 
-- **No techniques or tactics.** No payloads, no detector logic, no bypass chains, no verdict rules.
-  The weakness classes studied are named; how the platform tests them is not.
-- **No custom scripts or detector internals.** The platform's own modules are counted, never named or
-  described. No source, no logic, no thresholds, no sequencing, no decision rules.
-- **No orchestration.** The third-party tools are listed because they are public software anyone can
-  install. Which feeds which, in what order, and how their output becomes a verdict is not described —
-  and that is where the value sits.
-- **No engagement data.** No client or programme names, no hosts, no target identifiers, no findings
-  and no evidence. Disclosing a finding without permission breaches the programmes under which the
-  work was authorised, so none appears here.
+That division is deliberate and complete: what is here is what a reader needs in order to judge the
+work, and what is not here is what someone would need in order to copy it. The platform cannot be
+rebuilt from this repository, and it is not intended to be.
+
+- **Techniques and tactics stay closed.** The weakness classes studied are named, because that is
+  what establishes coverage. How the platform tests them — payloads, logic, bypass families, verdict
+  rules — is not described.
+- **The platform's own code stays closed.** Its 492 modules are counted, never named or described: no
+  source, no logic, no thresholds, no sequencing, no decision rules.
+- **Orchestration stays closed.** The 87 third-party tools are listed because they are public software
+  anyone can install. Which drives which, in what order, under what conditions, and how their output
+  becomes a verdict is where the value sits, and is not described.
+- **Client work stays confidential.** No programme names, hosts, target identifiers, findings or
+  evidence appear. Disclosing a finding without permission would breach the programmes under which the
+  work was authorised; that obligation is treated as absolute.
 
 ## Licence
 
