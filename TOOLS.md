@@ -1,8 +1,12 @@
-# Open-source toolchain
+# Toolchain
 
-87 third-party binaries were read, evaluated, and wrapped behind a single interface so that each
-exposes version, health, capabilities, structured output, errors, timeouts, cancellation and evidence
-uniformly.
+**NullCadre is 492 offensive tool modules of its own code**, 294 of them behind the authorisation gate
+because they can reach a live target, driven by a catalogue of 156 read-only action specifications.
+That is the platform.
+
+Beneath those sit **87 third-party binaries** — this page. They were read, evaluated, and wrapped behind
+a single interface so that each exposes version, health, capabilities, structured output, errors,
+timeouts, cancellation and evidence uniformly. They are the commodity layer: anyone can install them.
 
 **Every one is open source. No commercial scanner is integrated, and none is required to run the
 platform.**
