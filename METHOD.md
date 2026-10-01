@@ -2,35 +2,35 @@
 
 The method is the part worth examining, and it can be stated without describing any implementation.
 Each rule below exists because its absence produced a specific, expensive failure during development.
-Each is now enforced by a test rather than by intention.
+Each is now enforced by a test, not by intention.
 
 ---
 
 ## Evidence decides, not inference
 
 - **A finding is only a finding if the request that proves it was executed.** A keyword match proves a
-  string exists — not that the code runs, and not that anything reaches it.
+  string exists. It does not prove the code runs, or that anything reaches it.
 - **The deterministic engine alone decides whether a weakness exists.** The language model reasons
   *about* evidence the engine produced and never produces a verdict. This follows from measurement, not
   taste: models score near zero on authorisation reasoning while scoring well on injection classes, so
   the one class where a model is useless is precisely the class that pays.
-- **Severity follows what was disclosed** — the sensitivity of the data, whether the action was read or
-  write, whether the identifier was reachable at scale — never the ingenuity of the method.
-- **Vocabulary is kept precise.** An observation is not a hypothesis, a hypothesis is not a potential
+- **Severity follows what was disclosed:** the sensitivity of the data, whether the action was read or
+  write, and whether the identifier was reachable at scale. Never the ingenuity of the method.
+- **Precise vocabulary.** An observation is not a hypothesis, a hypothesis is not a potential
   vulnerability, and a potential vulnerability is not a proven weakness. Collapsing those steps invites
   a reader to assume proof that does not exist.
 
 ## Absence of evidence is not evidence of absence
 
-- **A check whose preconditions failed reports NOT TESTED.** It never reports a clean result. Telling a
+- **A failed precondition reports NOT TESTED.** It never reports a clean result. Telling a
   client their authorisation is sound on the strength of a test that never ran is the most damaging
   thing a platform of this kind can do.
-- **A control must be capable of failing.** Every guard is tested against the exact defect it exists to
-  catch, because a guard that cannot fail is worth nothing — and a guard that fires on a run which
+- **Controls must be able to fail.** Every guard is tested against the exact defect it exists to
+  catch, because a guard that cannot fail is worth nothing. A guard that fires on a run which
   demonstrably worked is equally worthless, since it teaches the reader to ignore it.
 - **A finding that disappeared because the target disappeared is not remediated.** If a run lost its
   target or skipped a check, the result is *not re-observed*, not *resolved*.
-- **Nothing is described as fixed.** An external tester cannot see a patch. The strongest honest claim
+- **Nothing is called fixed.** An external tester cannot see a patch. The strongest honest claim
   is that a weakness was not rediscovered using the original method and a stated set of variants.
 
 ## The false-positive problem, and the cost of solving it
@@ -43,7 +43,7 @@ invariant and a great many hours of chasing individual wrong answers to their ro
 suppressing them.
 
 The invariant: **no detector ships until it is proven silent on a benign input.** 71 detectors are
-currently pinned that way in the test suite — each paired with a known-clean case and failing CI if it
+currently pinned that way in the test suite, each paired with a known-clean case and failing CI if it
 ever speaks when it should not. The rule exists because a detector's false-positive behaviour is
 otherwise discovered on a client's live target, which is the most expensive place to find it and the one
 place it cannot be undone.
@@ -51,12 +51,12 @@ place it cannot be undone.
 Two refinements were learned the hard way and now apply to every check:
 
 - **A fixture that is silent because nothing ran proves nothing.** Several checks appeared to behave
-  until it emerged that their preconditions had failed, so the quiet was absence of testing rather than
+  until it emerged that their preconditions had failed, so the quiet meant absence of testing, not
   absence of a flaw. Every clean fixture now asserts the detector genuinely executed before it asserts
   the detector stayed quiet.
 - **A guard must be able to fire and able to stay quiet.** Each is tested against the exact defect it
   exists to catch *and* against a case that must not trigger it, because a guard that cries wolf teaches
-  the reader to ignore it — the same damage as a false all-clear, pointing the other way.
+  the reader to ignore it. That is the same damage as a false all-clear, pointing the other way.
 
 Reaching single-digit false positives took far longer than reaching coverage. Coverage is additive: a new
 check adds a class. Precision is not: every wrong answer has to be traced to the assumption that produced
@@ -67,9 +67,9 @@ list and is the reason the platform's output can be handed to a client.
 
 - **A module that is finished, tested and exported is still dead code** until a real entry point
   executes it and produces output. Verification means running it, not reading it.
-- **Every capability claim carries the date it was counted.** A claim about current state silently
+- **Claims carry their date.** A claim about current state silently
   expires, so the date is written where a reader will see it.
-- **A reduction in coverage is treated as a regression.** Tests are not removed to make a change pass.
+- **Lost coverage is a regression.** Tests are not removed to make a change pass.
 
 ## Authorisation is enforced, not promised
 
@@ -80,7 +80,7 @@ list and is the reason the platform's output can be handed to a client.
   usable by buyers in regulated sectors.
 - **The reasoning model runs locally.** Information about a client's systems does not leave the
   operator's estate, including for report writing.
-- **Every report states what was not tested, and why.** Coverage is stated honestly or the report is
+- **Reports state what was not tested.** Coverage is stated honestly or the report is
   not finished.
 
 ---
@@ -90,5 +90,5 @@ list and is the reason the platform's output can be handed to a client.
 Each one was learned by getting it wrong first. The pattern that recurred most was not a missing
 feature but a silent success: a check that returned nothing because it never ran, a module that was
 complete but unreachable, a guard that could not fail, a figure that had been true months earlier. None
-of those announce themselves — every local signal reads green — which is why each is now pinned by a
+of those announce themselves, because every local signal reads green. Each is now pinned by a
 test that fails loudly instead of by a habit that can lapse.
