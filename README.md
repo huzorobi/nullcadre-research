@@ -15,6 +15,8 @@ systems is sent to a hosted model, including when a report is written. The deter
 decides whether a weakness exists; the local model reasons about the evidence that engine produced
 and deepens coverage, and it never issues a verdict.
 
+**[nullcadre.com](https://nullcadre.com)**
+
 Owner: HuzoSecurity Ltd. Counted from the source tree on 2026-10-01.
 
 ---
@@ -49,6 +51,7 @@ that proves a detector behaves is part of the deliverable, not overhead.
 | [SOURCES.md](SOURCES.md) | 237 books, papers and guides · 442 external sources · 16 specifications |
 | [METHOD.md](METHOD.md) | How the work was done: the rules, and the failure each one prevents |
 | [TOOLS.md](TOOLS.md) | The two layers: 492 modules of our own code, over 87 open-source tools |
+| [COVERAGE.md](COVERAGE.md) | What the platform tests for, by weakness class |
 
 ## Scope of this repository
 
