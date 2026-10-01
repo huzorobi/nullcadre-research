@@ -75,6 +75,12 @@ evidence it produced.
 
 **Can language-model agents conduct penetration tests autonomously?**
 
+This body of work was read closely and the answer shaped the design, which went the other way:
+NullCadre is human-in-the-loop and its model runs locally. The literature below reports agents that
+plan and act on their own; the reason for not building one is in the measurement cited above, where
+a frontier model scored zero on the authorisation class that matters most commercially. An agent
+that cannot be trusted with the verdict should not be given the engagement.
+
 - PentestGPT: an LLM-empowered automatic penetration testing tool
 - PentestAgent: incorporating LLM agents into automated penetration testing
 - RapidPen: fully automated IP-to-shell penetration testing with LLM-based agents

@@ -6,6 +6,15 @@ This repository is the reading list and the method. It is published so that the 
 NullCadre can be examined independently. It contains no implementation: nothing here is sufficient
 to rebuild the platform.
 
+**NullCadre is human-in-the-loop, not autonomous.** The operator defines the scope, authorises it,
+launches every run and confirms any exploitation. The software never decides on its own what to
+test or whom to test it against.
+
+**The reasoning model runs locally, on the operator's own hardware.** Nothing about a client's
+systems is sent to a hosted model, including when a report is written. The deterministic engine
+decides whether a weakness exists; the local model reasons about the evidence that engine produced
+and deepens coverage, and it never issues a verdict.
+
 Owner: HuzoSecurity Ltd. Counted from the source tree on 2026-10-01.
 
 ---
