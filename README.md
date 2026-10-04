@@ -34,14 +34,14 @@ Built between **11 June and 1 October 2026**: 112 days, 1,587 commits, roughly 2
 | Core code | 161,317 lines |
 | Test code | 91,808 lines |
 | Test files · passing tests | 909 · 7,931 |
-| **Offensive tool modules** | **492** |
-| Modules behind the authorisation gate | 294 |
+| **Offensive tool modules** | **501** |
+| Modules behind the authorisation gate | 299 |
 | Deterministic battery phases | 178 |
 | Reasoning-engine action catalogue | 156 specifications, all read-only |
 | Engagement profiles | 37 |
 
 **Measured false-positive rate: 0 to 5 per cent**, with one authenticated engagement producing 63
-findings and zero false positives. 71 detectors are pinned in the test suite as provably silent on benign
+findings and zero false positives. 219 detectors are pinned in the test suite as provably silent on benign
 input. Reaching that took longer than reaching coverage. See [METHOD.md](METHOD.md).
 
 Test code is 57% of the volume of the code it protects. That ratio is deliberate: in this domain a wrong answer delivered confidently is worse than no answer, so the harness
@@ -51,9 +51,9 @@ that proves a detector behaves is part of the deliverable, not overhead.
 
 | Document | Contents |
 |---|---|
-| [SOURCES.md](SOURCES.md) | 237 books, papers and guides · 442 external sources · 16 specifications |
+| [SOURCES.md](SOURCES.md) | 237 books, papers and guides · 637 external sources · 16 specifications |
 | [METHOD.md](METHOD.md) | How the work was done: the rules, and the failure each one prevents |
-| [TOOLS.md](TOOLS.md) | The 492 modules, and the open-source tools they drive |
+| [TOOLS.md](TOOLS.md) | The 501 modules, and the open-source tools they drive |
 | [COVERAGE.md](COVERAGE.md) | What the platform tests for, by weakness class |
 
 ## Scope of this repository
@@ -67,7 +67,7 @@ rebuilt from this repository, and it is not intended to be.
 - **Techniques and tactics stay closed.** The weakness classes studied are named, because that is
   what establishes coverage. The way the platform tests them is not described, and neither are payloads,
   logic, bypass families or verdict rules.
-- **The platform's own code stays closed.** Its 492 modules are counted, never named or described: no
+- **The platform's own code stays closed.** Its 501 modules are counted, never named or described: no
   source, no logic, no thresholds, no sequencing, no decision rules.
 - **Orchestration stays closed.** The 87 third-party tools are listed because they are public software
   anyone can install. Which drives which, in what order, under what conditions, and how their output
