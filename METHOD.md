@@ -42,7 +42,7 @@ This is where most of the engineering time went, and it is the result the platfo
 invariant and a great many hours of chasing individual wrong answers to their root cause instead of
 suppressing them.
 
-The invariant: **no detector ships until it is proven silent on a benign input.** 71 detectors are
+The invariant: **no detector ships until it is proven silent on a benign input.** 219 detectors are
 currently pinned that way in the test suite, each paired with a known-clean case and failing CI if it
 ever speaks when it should not. The rule exists because a detector's false-positive behaviour is
 otherwise discovered on a client's live target, which is the most expensive place to find it and the one

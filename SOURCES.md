@@ -1,6 +1,6 @@
 # Sources
 
-237 books, papers and guides; 442 distinct external sources cited across the research; 16
+237 books, papers and guides; 637 distinct external sources, counted by domain, cited across the research; 16
 specifications read in the original. Assembled between July and October 2026.
 
 ---
@@ -147,7 +147,7 @@ silent.
 
 ## Online sources
 
-442 distinct external domains are cited across the research. The largest single source is the body of
+637 distinct external domains are cited across the research. The largest single source is the body of
 publicly disclosed vulnerability reports.
 
 | Source | Citations | Contribution |
