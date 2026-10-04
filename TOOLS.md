@@ -4,7 +4,7 @@
 because they can reach a live target, driven by a catalogue of 156 read-only action specifications.
 That is the platform.
 
-Beneath those sit the **87 third-party binaries** listed on this page. They were read, evaluated and wrapped behind
+Beneath those sit the **79 third-party binaries** listed on this page. They were read, evaluated and wrapped behind
 a single interface so that each exposes version, health, capabilities, structured output, errors,
 timeouts, cancellation and evidence uniformly. They are the commodity layer: anyone can install them.
 

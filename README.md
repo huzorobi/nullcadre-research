@@ -64,9 +64,9 @@ Built between **11 June and 4 October 2026**: 115 days, 1,654 commits, roughly 2
 | | | | |
 |---|--:|---|--:|
 | 🧩 **Offensive tool modules** | **501** | 🛡️ Modules behind the authorisation gate | 299 |
-| 🧠 Reasoning-engine actions | 156 | ⚙️ Deterministic battery phases | 178 |
+| 🧠 Reasoning-engine actions | 156 | ⚙️ Tool catalogue a run selects from | 70 |
 | 📐 Core code | 166,417 lines | 🧪 Test code | 97,544 lines |
-| 📁 Test files | 956 | 🎛️ Engagement profiles | 37 |
+| 📁 Test files | 956 | 🎛️ Engagement profiles | 6 |
 
 </div>
 
@@ -78,8 +78,10 @@ Built between **11 June and 4 October 2026**: 115 days, 1,654 commits, roughly 2
 Test code is 59% of the volume of the code it protects. That ratio is deliberate: in this domain a
 test that proves a detector behaves is part of the deliverable, not overhead.
 
-<sub>Figures counted from the source tree on 4 October 2026. Battery phases and engagement profiles
-are carried from the 1 October count and were not re-derived for this revision.</sub>
+<sub>Every figure above was counted from the source tree on 4 October 2026. Two earlier figures were
+withdrawn in the process: a count of 178 battery phases, which no counting method in the tree reproduces,
+and 37 engagement profiles, where the registry holds 6. The first is replaced by the tool catalogue a run
+selects from, which is measurable; the second by the correct number.</sub>
 
 ## 📚 The library
 
@@ -114,7 +116,7 @@ logic, bypass families or verdict rules.
 **💾 The platform's own code.** Its 501 modules are counted, never named or described: no source,
 no logic, no thresholds, no sequencing, no decision rules.
 
-**🔗 Orchestration.** The 87 third-party tools are listed because they are public software anyone
+**🔗 Orchestration.** The 79 third-party tools are listed because they are public software anyone
 can install. Which drives which, in what order, under what conditions, and how their output becomes
 a verdict is where the value sits, and is not described.
 
