@@ -11,7 +11,7 @@
 [![False positives](https://img.shields.io/badge/false_positive_rate-0_to_5%25-16a34a?style=for-the-badge&logo=checkmarx&logoColor=white)](METHOD.md)
 [![Sources](https://img.shields.io/badge/sources-237_texts_·_637_domains-f59e0b?style=for-the-badge&logo=readthedocs&logoColor=white)](SOURCES.md)
 
-[![Local AI](https://img.shields.io/badge/AI-local_model_only-be123c?style=flat-square&logo=nvidia&logoColor=white)](#-local-ai-only)
+[![Local AI](https://img.shields.io/badge/AI-local_model_only-be123c?style=flat-square)](#-local-ai-only)
 [![Human in the loop](https://img.shields.io/badge/operation-human_in_the_loop-0f766e?style=flat-square&logo=keybase&logoColor=white)](#-human-in-the-loop-not-autonomous)
 [![No implementation](https://img.shields.io/badge/implementation-not_published-475569?style=flat-square&logo=git&logoColor=white)](#-scope-of-this-repository)
 [![British English](https://img.shields.io/badge/written_in-British_English-1e3a8a?style=flat-square)](#)
