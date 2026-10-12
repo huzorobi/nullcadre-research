@@ -6,8 +6,9 @@
 
 **What informed the build of an AI-assisted platform for authorised penetration testing.**
 
-[![Modules](https://img.shields.io/badge/offensive_modules-501-0ea5e9?style=for-the-badge&logo=target&logoColor=white)](TOOLS.md)
-[![Gate](https://img.shields.io/badge/behind_the_gate-299-7c3aed?style=for-the-badge)](METHOD.md)
+[![Modules](https://img.shields.io/badge/offensive_modules-524-0ea5e9?style=for-the-badge&logo=target&logoColor=white)](TOOLS.md)
+[![Gate](https://img.shields.io/badge/behind_the_gate-310-7c3aed?style=for-the-badge)](METHOD.md)
+[![Tests](https://img.shields.io/badge/tests_passing-10%2C049-22c55e?style=for-the-badge)](#)
 [![False positives](https://img.shields.io/badge/false_positive_rate-0_to_5%25-16a34a?style=for-the-badge)](METHOD.md)
 [![Sources](https://img.shields.io/badge/sources-237_texts_·_637_domains-f59e0b?style=for-the-badge&logo=readthedocs&logoColor=white)](SOURCES.md)
 
@@ -57,16 +58,16 @@ hosted model anywhere in the loop.
 
 ## 📊 The work
 
-Built between **11 June and 4 October 2026**: 115 days, 1,654 commits, roughly 264,000 lines of code.
+Built between **11 June and 12 October 2026**: 123 days, 1,914 commits, roughly 310,000 lines of code.
 
 <div align="center">
 
 | | | | |
 |---|--:|---|--:|
-| 🧩 **Offensive tool modules** | **501** | 🛡️ Modules behind the authorisation gate | 299 |
+| 🧩 **Offensive tool modules** | **524** | 🛡️ Modules behind the authorisation gate | 310 |
 | 🧠 Reasoning-engine actions | 156 | ⚙️ Tool catalogue a run selects from | 70 |
-| 📐 Core code | 166,417 lines | 🧪 Test code | 97,544 lines |
-| 📁 Test files | 956 | 🎛️ Engagement profiles | 6 |
+| 📐 Core code | 183,008 lines | 🧪 Test code | 125,481 lines |
+| 📁 Test files | 1,052 | ✅ Tests passing | **10,049** |
 
 </div>
 
@@ -91,7 +92,7 @@ selects from, which is measurable; the second by the correct number.</sub>
 |:--:|---|---|
 | 📖 | **[SOURCES.md](SOURCES.md)** | 237 books, papers and guides · 637 external domains · 16 specifications read in the original |
 | 🧭 | **[METHOD.md](METHOD.md)** | How the work was done: the rules, and the failure each one prevents |
-| 🧰 | **[TOOLS.md](TOOLS.md)** | The 501 modules, and the open-source tools they drive |
+| 🧰 | **[TOOLS.md](TOOLS.md)** | The 524 modules, and the open-source tools they drive |
 | 🎯 | **[COVERAGE.md](COVERAGE.md)** | What the platform tests for, by weakness class |
 
 </div>
@@ -113,7 +114,7 @@ this repository, and it is not intended to be.
 establishes coverage. The way the platform tests them is not described, and neither are payload
 logic, bypass families or verdict rules.
 
-**💾 The platform's own code.** Its 501 modules are counted, never named or described: no source,
+**💾 The platform's own code.** Its 524 modules are counted, never named or described: no source,
 no logic, no thresholds, no sequencing, no decision rules.
 
 **🔗 Orchestration.** The 79 third-party tools are listed because they are public software anyone
