@@ -89,6 +89,54 @@ action outside that catalogue cannot be taken whatever the model proposes. It st
 escalates. And it does not decide anything: a lead it raises becomes a finding only when a deterministic
 check confirms it.
 
+## Proving a destructive class without performing it
+
+Three weakness classes resisted black-box coverage for the same reason: confirming them means
+destroying or altering a client's data. Deleting content to prove deletion works, writing a file to
+prove an upload is accepted. A platform that stops at proof cannot do either, so those classes were
+carried as declared gaps rather than quietly counted as clean.
+
+They are now covered in the half that matters, and the method is the same each time: the
+application is asked a question it answers honestly about its own permissions, and the answer is
+read instead of the action being taken.
+
+Object-level deletion authorisation is established from a read request alone. A recent platform
+version publishes, for each object it returns, the permissions it would grant on that object,
+computed by running its own permission check with that object bound. A delete permission in that
+answer is the application stating it would delete that specific object for the caller who asked,
+and nothing but a read was sent. A test asserts the request set actually used contains no write
+verb, so the claim is enforced rather than described.
+
+Upload authorisation is established with nothing written. The platform's documented ordering places
+its permission check before any handling of the submitted data, and its data handling returns an
+error before anything is stored. A request carrying no data therefore passes the permission check
+and fails afterwards, which proves the caller held the upload permission while leaving no file and
+no record behind.
+
+What is still not covered is stated in both cases, because an authorisation proof is not a
+confirmation: that the deletion would succeed, and that a dangerous file type would be accepted.
+Neither is claimed, and the reports say so.
+
+A fourth class, deliberately planted access in third-party extension source, is reviewed offline
+from publicly downloadable code, so no client system is involved at all. It reports indicators with
+the line of source attached and never a verdict, because an accusation of intent is not something
+source can establish: a debugging leftover, an upstream oddity and a deliberate door can look
+identical, and a human decides which.
+
+## Coverage statements survive the whole pipeline
+
+A gap that reaches no report is a gap the client is told does not exist. An audit of every stage
+between a check and the finished report found that statements about what was NOT tested were being
+discarded at six separate points, including one where an aggregator turned a precondition failure
+into an affirmative "nothing here" and the reasoning engine then stopped pursuing the class. Each
+point now carries the statement through, and the audit itself is a test, so a new check wired
+without its coverage channel fails rather than shipping a silent gap.
+
+Identifier reach also contributes to priority now. Whether the identifier in an authorisation flaw
+is enumerable or opaque decides whether every object is reachable by counting or only one that an
+attacker already knows, and that distinction moves the priority of an otherwise identical finding.
+An identifier that cannot be read from the evidence changes nothing and says so.
+
 ## From finding to report
 
 Impact scoring aligned to what was disclosed. Attack-chain synthesis, linking findings that compose into a
