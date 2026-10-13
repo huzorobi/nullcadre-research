@@ -144,6 +144,41 @@ larger outcome. Professional reporting with reproduction steps, evidence paths, 
 impact, remediation and retest guidance. Coverage is stated in every report, including what was not tested
 and why.
 
+## When a clean result is not a clean result
+
+The failure this platform works hardest against is a detector that is truthful about its input and
+wrong about the target. Four of them were found and closed by testing checks that reported nothing,
+rather than by reading their output.
+
+**A scope pattern is not a fetchable address.** An engagement that authorises a path and everything
+beneath it expresses that with a wildcard. Handed to a crawler as though it were an address, the
+wildcard is a request for a page that does not exist, and the crawl expands from nothing. A run
+reported no client-side scripts on a site that serves several. Patterns are now normalised into
+fetchable roots before any crawler sees them, and a wildcard that names no machine is dropped rather
+than guessed at.
+
+**Components that do not advertise themselves.** Reading a page finds the components that announce
+their presence by loading an asset. A component used only in an administrative area, a site that
+strips version strings to improve caching, and any hardened installation that suppresses asset
+versioning are all invisible to that method. Asking the target directly, for the components already
+known to have published advisories, finds them whether they announce themselves or not. The
+difference on a controlled test estate was two components found passively against more than a
+hundred found by asking.
+
+**A shared scanner remembers other engagements.** A long-lived third-party scanner keeps its own
+session across runs. Authorisation validates what a tool is given; it cannot see what that tool
+already holds. Queries into such a session must name the engagement they are asking about, and the
+one filter that enforced this has been made structural rather than conventional.
+
+**Work that cannot be seen is indistinguishable from work that did not happen.** An assessment split
+across parallel lanes reported only one of them, so a correct run appeared to produce nothing. The
+reporting surface now accounts for every lane, and no lane that finishes early can speak for the
+whole.
+
+Each of these produced a confident nothing. A clean result from a starved check reads, in a report,
+exactly like a clean result from a tested target, and that is the distinction the whole method exists
+to preserve.
+
 ---
 
 ## What this page does not tell you
