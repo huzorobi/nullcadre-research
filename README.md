@@ -67,7 +67,7 @@ Built between **11 June and 12 October 2026**: 123 days, 1,914 commits, roughly 
 | 🧩 **Offensive tool modules** | **526** | 🛡️ Modules behind the authorisation gate | 310 |
 | 🧠 Reasoning-engine actions | 156 | ⚙️ Tool catalogue a run selects from | 70 |
 | 📐 Core code | 183,008 lines | 🧪 Test code | 125,481 lines |
-| 📁 Test files | 1,060 | ✅ Tests passing | **10,181** |
+| 📁 Test files | 1,063 | ✅ Tests passing | **10,220** |
 
 </div>
 
