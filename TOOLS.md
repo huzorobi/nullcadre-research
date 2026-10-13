@@ -1,6 +1,6 @@
 # Toolchain
 
-**NullCadre is 524 offensive tool modules of its own code**, 310 of them behind the authorisation gate
+**NullCadre is 526 offensive tool modules of its own code**, 310 of them behind the authorisation gate
 because they can reach a live target, driven by a catalogue of 156 read-only action specifications.
 That is the platform.
 
