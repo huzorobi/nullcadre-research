@@ -1,7 +1,7 @@
 # Toolchain
 
-**NullCadre is 526 offensive tool modules of its own code**, 310 of them behind the authorisation gate
-because they can reach a live target, driven by a catalogue of 156 read-only action specifications.
+**NullCadre is 553 offensive tool modules of its own code**, 312 of them behind the authorisation gate
+because they can reach a live target, driven by a catalogue of 157 read-only action specifications.
 That is the platform.
 
 Beneath those sit the **79 third-party binaries** listed on this page. They were read, evaluated and wrapped behind
@@ -15,6 +15,29 @@ Studying their output formats and failure modes was itself a research task: a to
 reports nothing, and nothing reads exactly like a clean result.
 
 ---
+
+```mermaid
+pie showData
+    title Third-party tools by area
+    "Subdomain and DNS" : 9
+    "Web and API scanning" : 9
+    "Host and port discovery" : 8
+    "Mobile and binary analysis" : 7
+    "Crawl and URL collection" : 6
+    "TLS and protocol posture" : 6
+    "Platform-specific" : 6
+    "Secrets and source exposure" : 6
+    "Content and parameter discovery" : 5
+    "Injection" : 4
+    "Credentials and tokens" : 4
+    "Windows and directory services" : 4
+    "Cloud and infrastructure posture" : 3
+    "Vulnerability intelligence" : 2
+```
+
+The platform's own modules outnumber these by seven to one, and **312 of its 553 sit behind the
+authorisation gate** because they can reach a live target. The remainder parse, correlate, score and
+report, and never touch anything.
 
 | Area | Tools |
 |---|---|

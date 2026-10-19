@@ -31,6 +31,38 @@ reaches its own object but receives more than it should. Object identifier analy
 and opaque identifier formats. Object-state authorisation, where a check holds on an active record but not
 on an archived or draft one.
 
+Severity here follows reachability rather than technique. Whether the identifier in an authorisation
+flaw is iterable or opaque changes what an attacker can do with it by orders of magnitude, and that
+difference is priced into the finding rather than left to the reader. Where reach cannot be determined
+it is recorded as unknown and stated.
+
+Write-side authorisation is established without writing. Whether a cross-account modification would be
+authorised can be settled from the response to a request that cannot succeed, which keeps the proof
+inside a confirmation-grade ceiling and inside the rules of programmes that forbid mutating another
+account's data.
+
+Each account under test carries its own session state throughout. Sharing it is how one account quietly
+loses its own data part way through a scan, and the result then reads as an authorisation boundary
+holding when nothing of the sort was demonstrated.
+
+## Reading source instead of probing a target
+
+A weakness can be established by reading an application's code, and for one widely deployed ecosystem
+that is how it is done: its public plugin corpus is reviewed at the source, rather than probed on
+somebody else's installation.
+
+Eight classes are covered this way, each asking a question about the code rather than about a response:
+file upload with no extension allowlist, an unprepared database query built from request input,
+deserialisation of request input, file deletion on a request-derived path, an outbound fetch to a
+request-controlled address, a role or capability taken from the request, dynamic file inclusion on a
+request path, and a request that selects its own identity. Route and handler authorisation is covered
+alongside them, including permission callbacks that never deny anyone.
+
+What this does not do is claim a weakness from reading alone. A candidate is confirmed against an
+instance the operator owns and controls, and a candidate that cannot be confirmed stays a candidate.
+The distinction matters because the authority that issues identifiers for this ecosystem treats a report
+produced without observation as fabrication, and bans for it.
+
 ## Injection
 
 SQL injection across eleven distinct families, among them error-based, header and cookie, path-segment,

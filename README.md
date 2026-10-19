@@ -6,11 +6,12 @@
 
 **What informed the build of an AI-assisted platform for authorised penetration testing.**
 
-[![Modules](https://img.shields.io/badge/offensive_modules-526-0ea5e9?style=for-the-badge&logo=target&logoColor=white)](TOOLS.md)
-[![Gate](https://img.shields.io/badge/behind_the_gate-310-7c3aed?style=for-the-badge)](METHOD.md)
-[![Tests](https://img.shields.io/badge/tests_passing-10%2C049-22c55e?style=for-the-badge)](#)
+[![Version](https://img.shields.io/badge/platform-v2.746.620-0f172a?style=for-the-badge)](#-the-work)
+[![Modules](https://img.shields.io/badge/offensive_modules-553-0ea5e9?style=for-the-badge&logo=target&logoColor=white)](TOOLS.md)
+[![Gate](https://img.shields.io/badge/behind_the_gate-312-7c3aed?style=for-the-badge)](METHOD.md)
+[![Tests](https://img.shields.io/badge/tests_passing-11%2C195-22c55e?style=for-the-badge)](#)
 [![False positives](https://img.shields.io/badge/false_positive_rate-0_to_5%25-16a34a?style=for-the-badge)](METHOD.md)
-[![Sources](https://img.shields.io/badge/sources-237_texts_·_637_domains-f59e0b?style=for-the-badge&logo=readthedocs&logoColor=white)](SOURCES.md)
+[![Sources](https://img.shields.io/badge/sources-246_texts_·_637_domains-f59e0b?style=for-the-badge&logo=readthedocs&logoColor=white)](SOURCES.md)
 
 [![Local AI](https://img.shields.io/badge/AI-local_model_only-be123c?style=flat-square)](#-local-ai-only)
 [![Human in the loop](https://img.shields.io/badge/operation-human_in_the_loop-0f766e?style=flat-square)](#-human-in-the-loop-not-autonomous)
@@ -58,31 +59,85 @@ hosted model anywhere in the loop.
 
 ## 📊 The work
 
-Built between **11 June and 12 October 2026**: 123 days, 1,914 commits, roughly 310,000 lines of code.
+Built between **11 June and 19 October 2026**: 130 days, 2,022 commits, roughly 336,000 lines of code.
 
 <div align="center">
 
 | | | | |
 |---|--:|---|--:|
-| 🧩 **Offensive tool modules** | **526** | 🛡️ Modules behind the authorisation gate | 310 |
-| 🧠 Reasoning-engine actions | 156 | ⚙️ Tool catalogue a run selects from | 70 |
-| 📐 Core code | 183,008 lines | 🧪 Test code | 125,481 lines |
-| 📁 Test files | 1,063 | ✅ Tests passing | **10,220** |
+| 🧩 **Offensive tool modules** | **553** | 🛡️ Modules behind the authorisation gate | 312 |
+| 🧠 Reasoning-engine actions | 157 | ⚙️ Third-party tools driven | 79 |
+| 📐 Core code | 197,043 lines | 🧪 Test code | 139,420 lines |
+| 📁 Test files | 1,108 | ✅ Tests passing | **11,195** |
 
 </div>
 
 > [!IMPORTANT]
 > **Measured false-positive rate: 0 to 5 per cent**, with one authenticated engagement producing 63
-> findings and zero false positives. **219 detectors** are pinned in the test suite as provably
+> findings and zero false positives. **222 detectors** are pinned in the test suite as provably
 > silent on a benign input. Reaching that took longer than reaching coverage.
 
-Test code is 59% of the volume of the code it protects. That ratio is deliberate: in this domain a
+Test code is 71% of the volume of the code it protects. That ratio is deliberate: in this domain a
 test that proves a detector behaves is part of the deliverable, not overhead.
 
-<sub>Every figure above was counted from the source tree on 4 October 2026. Two earlier figures were
-withdrawn in the process: a count of 178 battery phases, which no counting method in the tree reproduces,
-and 37 engagement profiles, where the registry holds 6. The first is replaced by the tool catalogue a run
-selects from, which is measurable; the second by the correct number.</sub>
+### How it grew
+
+Counted from the commit tree at each month end, not estimated.
+
+```mermaid
+xychart-beta
+    title "Offensive modules and test files, by month end"
+    x-axis ["30 Jun", "31 Jul", "31 Aug", "30 Sep", "19 Oct"]
+    y-axis "Count" 0 --> 1200
+    bar [47, 377, 409, 492, 553]
+    line [142, 515, 671, 905, 1108]
+```
+
+<div align="center">
+
+| Month end | Offensive modules | Test files | Commits | Tests per module |
+|---|--:|--:|--:|--:|
+| 30 June 2026 | 47 | 142 | 199 | 3.0 |
+| 31 July 2026 | 377 | 515 | 826 | 1.4 |
+| 31 August 2026 | 409 | 671 | 1,029 | 1.6 |
+| 30 September 2026 | 492 | 905 | 1,580 | 1.8 |
+| **19 October 2026** | **553** | **1,108** | **2,022** | **2.0** |
+
+</div>
+
+The July step is the month the detector battery was built. What the later months add is not breadth but
+proof: between September and October the module count rose by 12 per cent while the test files rose by
+22 per cent, which is the shape intended. The last column is the one worth watching, because a platform
+that adds detectors faster than it can show them behaving is accumulating a liability, not coverage.
+
+### Where the reading went
+
+```mermaid
+pie showData
+    title Sources by collection
+    "AI and cybersecurity" : 97
+    "Practitioner guides" : 47
+    "Academic survey bundle" : 35
+    "Bug-bounty practice" : 22
+    "API authorisation" : 16
+    "LLM security" : 9
+    "Assessment practice" : 4
+    "LLM-assisted triage" : 4
+    "Automation" : 3
+    "Platform ecosystem research" : 3
+    "Certification" : 2
+    "Hardening" : 2
+    "Authorisation taxonomy and reach" : 2
+```
+
+<sub>Every figure above was counted from the source tree at <b>v2.746.620</b> on 19 October 2026, by a
+script that measures them rather than by hand, so the three repositories describing this platform cannot
+drift apart again. Two figures are produced by executing the code rather than reading it, because the two
+disagree: the action catalogue holds 157 entries and a regular expression over the same file counts 165.
+Three figures published earlier were withdrawn for having no reproducible method: 178 battery phases, 37
+engagement profiles where the registry holds 6, and a tool catalogue of 70, replaced here by the count of
+third-party tools actually listed. The source counts are derived from the tables in SOURCES.md, so they can
+be checked against the page itself.</sub>
 
 ## 📚 The library
 
@@ -90,9 +145,9 @@ selects from, which is measurable; the second by the correct number.</sub>
 
 | | Document | Contents |
 |:--:|---|---|
-| 📖 | **[SOURCES.md](SOURCES.md)** | 237 books, papers and guides · 637 external domains · 16 specifications read in the original |
+| 📖 | **[SOURCES.md](SOURCES.md)** | 246 books, papers and guides · 637 external domains · 17 specifications read in the original |
 | 🧭 | **[METHOD.md](METHOD.md)** | How the work was done: the rules, and the failure each one prevents |
-| 🧰 | **[TOOLS.md](TOOLS.md)** | The 526 modules, and the open-source tools they drive |
+| 🧰 | **[TOOLS.md](TOOLS.md)** | The 553 modules, and the open-source tools they drive |
 | 🎯 | **[COVERAGE.md](COVERAGE.md)** | What the platform tests for, by weakness class |
 
 </div>
@@ -114,7 +169,7 @@ this repository, and it is not intended to be.
 establishes coverage. The way the platform tests them is not described, and neither are payload
 logic, bypass families or verdict rules.
 
-**💾 The platform's own code.** Its 526 modules are counted, never named or described: no source,
+**💾 The platform's own code.** Its 553 modules are counted, never named or described: no source,
 no logic, no thresholds, no sequencing, no decision rules.
 
 **🔗 Orchestration.** The 79 third-party tools are listed because they are public software anyone

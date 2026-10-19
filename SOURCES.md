@@ -1,6 +1,6 @@
 # Sources
 
-237 books, papers and guides; 637 distinct external sources, counted by domain, cited across the research; 16
+246 books, papers and guides; 637 distinct external sources, counted by domain, cited across the research; 17
 specifications read in the original. Assembled between July and October 2026.
 
 ---
@@ -19,6 +19,9 @@ specifications read in the original. Assembled between July and October 2026.
 | Automation | 3 | Bug-bounty automation and tooling method |
 | Certification | 2 | Ethical-hacking syllabus and a supporting paper |
 | Hardening | 2 | Container benchmark, authorisation practice for LLM-backed systems |
+| LLM-assisted triage | 4 | Filtering static-analysis findings with a model, and where that filtering fails |
+| Authorisation taxonomy and reach | 2 | How authorisation flaws are classified and priced, and what makes one reachable at scale |
+| Platform ecosystem research | 3 | A single application ecosystem's plugin corpus, its advisory record and its disclosure rules |
 
 ## Books and canonical texts
 
@@ -165,6 +168,78 @@ publicly disclosed vulnerability reports.
 | Cloud-provider documentation | ~20 | Service behaviour relied on when reasoning about findings |
 | Security press | ~50 | Disclosure timelines |
 
+## Added since October 2026: filtering a model's findings
+
+Work after the first publication of this library concentrated on a single question: whether a language
+model can be trusted to reduce a static analyser's false positives without introducing its own. The
+answer in the literature is a qualified yes, and the qualifications are what shaped the build.
+
+| Source | What it establishes |
+|---|---|
+| IRIS (ICLR 2025, arXiv 2405.17238) | Encoding the detected code path and its surrounding context lets a model classify true against false positives. Its false-discovery rate sat below the static analyser's alone, so the model did not add alarms of its own |
+| ZeroFalse (arXiv 2510.02534) | Analyser output as structured input, with flow traces and per-weakness context. One prompt across all weakness classes performs worse than a prompt tailored to each |
+| Path feasibility in LLM filtering (arXiv 2506.10322) | Model filters degrade on large dependency-heavy code unless asked explicitly whether the sink is reachable from attacker-controlled input |
+| Reasoning versus non-reasoning models on analyser output (Semgrep study, eScholarship) | Reasoning models cut false positives further than models answering directly |
+
+The conclusion carried into the platform is narrow and worth stating: **the model triages, it never
+confirms.** It proposes which candidates deserve a human's attention. A deterministic check and a person
+decide whether a weakness exists, which is the same division the rest of this library describes.
+
+Disclosure economics were researched from primary sources over the same period: a CVE numbering
+authority's public programme rules and vulnerability records, read to establish which weakness classes
+are worth reporting and what a report must contain. Two findings shaped policy rather than code. Reports
+generated without observation are treated as fabrication and carry escalating bans, which is why nothing
+reaches a submission without evidence behind it. And the weakness class the first detector found is a
+named false-positive source for that programme, which is why coverage is not the same as value.
+
+## Added since October 2026: authorisation, priced rather than counted
+
+The platform was built around access control, so the later research went at the part that had been
+treated as settled: not how to find an authorisation flaw, but how to rank one and how to know when a
+test proved nothing.
+
+| Source | What it establishes |
+|---|---|
+| Bugcrowd Vulnerability Rating Taxonomy | The same flaw is priced an order of magnitude apart depending on whether the identifier is iterable or an opaque GUID. Severity follows reachability, not technique |
+| The CWE catalogue, for the classes this work turns on | Missing authorisation, authorisation bypass through a user-controlled key, code injection and dynamic file inclusion. Used so a finding is classified by what it is, not by which detector found it |
+
+Two conclusions went into code rather than prose. **Identifier reach became a scoring input**, because
+an authorisation flaw on a sequential identifier can be exercised at scale and one on a random identifier
+usually cannot, and the taxonomy prices that difference heavily. Where reach cannot be determined it is
+recorded as unknown and stated, rather than assumed in either direction.
+
+The second is a negative result and the more useful one. A measured study of language models on
+weakness classes found a model scoring **zero across every trial on authorisation bypass**, while scoring
+full marks on injection classes in the same harness. Authorisation is precisely where the model is no
+help, which is why the authorisation work is deterministic and the model is only pointed at it.
+
+A further review of the platform's own authorisation coverage, conducted against the source tree rather
+than against its documentation, produced a seventeen-item gap list. Most items were already present. The
+value of the exercise was the four that were not, and the discovery that two more existed but could never
+report their own absence, which is the failure this library returns to repeatedly.
+
+## Added since October 2026: one ecosystem, read at the source
+
+A single application ecosystem was taken as a corpus to test whether weaknesses can be found by reading
+source rather than probing a target: its public plugin repository, its advisory record, and the
+disclosure rules of the authority that issues identifiers for it.
+
+The reading established which weakness classes are worth the effort, and the answer was not the obvious
+one. Missing authorisation is the most frequently rewarded class, but the subset reachable only by an
+already-authenticated low-privilege user is a named false-positive source and is priced accordingly. The
+value sits in unauthenticated file upload, file read, file deletion, option updates, code injection and
+authentication bypass that reaches an administrative role.
+
+Eight source-reading checks were built from that, each for one class and each answering a question about
+code rather than about a response: an upload with no extension allowlist, an unprepared database query
+built from request input, deserialisation of request input, deletion on a request-derived path, an
+outbound fetch to a request-controlled address, a role or capability taken from the request, dynamic
+inclusion on a request path, and a request that chooses its own identity. Candidates are confirmed
+against an instance the operator owns, never against somebody else's installation.
+
+The disclosure rules shaped policy more than code. Reports produced without observation are treated as
+fabrication and carry escalating bans, so nothing reaches a submission without evidence behind it.
+
 ## Specifications read in the original
 
 Primary specifications were read where a test's correctness depends on what a protocol actually
@@ -184,6 +259,7 @@ permits, not on what a scanner assumes.
 | RFC 8615 (well-known URIs) | Discovery endpoints |
 | RFC 3161 (timestamping) | Evidence timestamping |
 | NIST SP 800-52 | TLS configuration guidance |
+| OWASP APTS (Autonomous Penetration Testing Standard) | What an autonomous tester must evidence, and the limits it must respect. Read in the original because the platform self-assesses against it rather than claiming conformance |
 
 Vendor documentation for web servers, application frameworks, edge proxies and browsers was read on the
 same principle: where a test's correctness depends on exactly how a component behaves, that behaviour
