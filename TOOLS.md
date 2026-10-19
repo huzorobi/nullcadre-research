@@ -16,24 +16,26 @@ reports nothing, and nothing reads exactly like a clean result.
 
 ---
 
-```mermaid
-pie showData
-    title Third-party tools by area
-    "Subdomain and DNS" : 9
-    "Web and API scanning" : 9
-    "Host and port discovery" : 8
-    "Mobile and binary analysis" : 7
-    "Crawl and URL collection" : 6
-    "TLS and protocol posture" : 6
-    "Platform-specific" : 6
-    "Secrets and source exposure" : 6
-    "Content and parameter discovery" : 5
-    "Injection" : 4
-    "Credentials and tokens" : 4
-    "Windows and directory services" : 4
-    "Cloud and infrastructure posture" : 3
-    "Vulnerability intelligence" : 2
-```
+<div align="center">
+
+| Area | | Tools |
+|---|---|--:|
+| Subdomain and DNS | `██████████████████████` | **9** |
+| Web and API scanning | `██████████████████████` | **9** |
+| Host and port discovery | `████████████████████` | **8** |
+| Mobile and binary analysis | `█████████████████` | **7** |
+| Crawl and URL collection | `███████████████` | **6** |
+| TLS and protocol posture | `███████████████` | **6** |
+| Platform-specific | `███████████████` | **6** |
+| Secrets and source exposure | `███████████████` | **6** |
+| Content and parameter discovery | `████████████` | **5** |
+| Injection | `██████████` | **4** |
+| Credentials and tokens | `██████████` | **4** |
+| Windows and directory services | `██████████` | **4** |
+| Cloud and infrastructure posture | `███████` | **3** |
+| Vulnerability intelligence | `█████` | **2** |
+
+</div>
 
 The platform's own modules outnumber these by seven to one, and **312 of its 553 sit behind the
 authorisation gate** because they can reach a live target. The remainder parse, correlate, score and

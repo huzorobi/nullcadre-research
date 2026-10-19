@@ -85,8 +85,9 @@ test that proves a detector behaves is part of the deliverable, not overhead.
 Counted from the commit tree at each month end, not estimated.
 
 ```mermaid
+%%{init: {"theme": "base", "themeVariables": {"xyChart": {"plotColorPalette": "#0ea5e9, #7c3aed"}}}}%%
 xychart-beta
-    title "Offensive modules and test files, by month end"
+    title "Offensive modules (bar) and test files (line), by month end"
     x-axis ["30 Jun", "31 Jul", "31 Aug", "30 Sep", "19 Oct"]
     y-axis "Count" 0 --> 1200
     bar [47, 377, 409, 492, 553]
@@ -112,23 +113,31 @@ that adds detectors faster than it can show them behaving is accumulating a liab
 
 ### Where the reading went
 
-```mermaid
-pie showData
-    title Sources by collection
-    "AI and cybersecurity" : 97
-    "Practitioner guides" : 47
-    "Academic survey bundle" : 35
-    "Bug-bounty practice" : 22
-    "API authorisation" : 16
-    "LLM security" : 9
-    "Assessment practice" : 4
-    "LLM-assisted triage" : 4
-    "Automation" : 3
-    "Platform ecosystem research" : 3
-    "Certification" : 2
-    "Hardening" : 2
-    "Authorisation taxonomy and reach" : 2
-```
+<div align="center">
+
+| Collection | | Items | Share |
+|---|---|--:|--:|
+| AI and cybersecurity | `████████████████████████████` | **97** | 39% |
+| Practitioner guides | `██████████████` | **47** | 19% |
+| Academic survey bundle | `██████████` | **35** | 14% |
+| Bug-bounty practice | `██████` | **22** | 9% |
+| API authorisation | `█████` | **16** | 7% |
+| LLM security | `███` | **9** | 4% |
+| Assessment practice | `█` | **4** | 2% |
+| LLM-assisted triage | `█` | **4** | 2% |
+| Automation | `█` | **3** | 1% |
+| Platform ecosystem research | `█` | **3** | 1% |
+| Certification | `█` | **2** | 1% |
+| Hardening | `█` | **2** | 1% |
+| Authorisation taxonomy and reach | `█` | **2** | 1% |
+| **Total** | | **246** | |
+
+</div>
+
+The weighting is deliberate. Two thirds of the reading sits in AI-and-security and practitioner method,
+because the question this platform exists to answer is not which weaknesses exist but which of them a
+machine can be trusted to judge. The smallest collections are the most recent: they are where the work
+is now.
 
 <sub>Every figure above was counted from the source tree at <b>v2.746.620</b> on 19 October 2026, by a
 script that measures them rather than by hand, so the three repositories describing this platform cannot
