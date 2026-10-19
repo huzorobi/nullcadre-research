@@ -6,10 +6,10 @@
 
 **What informed the build of an AI-assisted platform for authorised penetration testing.**
 
-[![Version](https://img.shields.io/badge/platform-v2.746.620-0f172a?style=for-the-badge)](#-the-work)
+[![Version](https://img.shields.io/badge/platform-v2.746.621-0f172a?style=for-the-badge)](#-the-work)
 [![Modules](https://img.shields.io/badge/offensive_modules-553-0ea5e9?style=for-the-badge&logo=target&logoColor=white)](TOOLS.md)
 [![Gate](https://img.shields.io/badge/behind_the_gate-312-7c3aed?style=for-the-badge)](METHOD.md)
-[![Tests](https://img.shields.io/badge/tests_passing-11%2C195-22c55e?style=for-the-badge)](#)
+[![Tests](https://img.shields.io/badge/tests_passing-11%2C198-22c55e?style=for-the-badge)](#)
 [![False positives](https://img.shields.io/badge/false_positive_rate-0_to_5%25-16a34a?style=for-the-badge)](METHOD.md)
 [![Sources](https://img.shields.io/badge/sources-246_texts_·_637_domains-f59e0b?style=for-the-badge&logo=readthedocs&logoColor=white)](SOURCES.md)
 
@@ -59,7 +59,7 @@ hosted model anywhere in the loop.
 
 ## 📊 The work
 
-Built between **11 June and 19 October 2026**: 130 days, 2,022 commits, roughly 336,000 lines of code.
+Built between **11 June and 19 October 2026**: 130 days, 2,023 commits, roughly 336,000 lines of code.
 
 <div align="center">
 
@@ -67,8 +67,8 @@ Built between **11 June and 19 October 2026**: 130 days, 2,022 commits, roughly 
 |---|--:|---|--:|
 | 🧩 **Offensive tool modules** | **553** | 🛡️ Modules behind the authorisation gate | 312 |
 | 🧠 Reasoning-engine actions | 157 | ⚙️ Third-party tools driven | 79 |
-| 📐 Core code | 197,043 lines | 🧪 Test code | 139,420 lines |
-| 📁 Test files | 1,108 | ✅ Tests passing | **11,195** |
+| 📐 Core code | 197,043 lines | 🧪 Test code | 139,482 lines |
+| 📁 Test files | 1,109 | ✅ Tests passing | **11,198** |
 
 </div>
 
@@ -91,7 +91,7 @@ xychart-beta
     x-axis ["30 Jun", "31 Jul", "31 Aug", "30 Sep", "19 Oct"]
     y-axis "Count" 0 --> 1200
     bar [47, 377, 409, 492, 553]
-    line [142, 515, 671, 905, 1108]
+    line [142, 515, 671, 905, 1109]
 ```
 
 <div align="center">
@@ -102,7 +102,7 @@ xychart-beta
 | 31 July 2026 | 377 | 515 | 826 | 1.4 |
 | 31 August 2026 | 409 | 671 | 1,029 | 1.6 |
 | 30 September 2026 | 492 | 905 | 1,580 | 1.8 |
-| **19 October 2026** | **553** | **1,108** | **2,022** | **2.0** |
+| **19 October 2026** | **553** | **1,109** | **2,023** | **2.0** |
 
 </div>
 
@@ -139,7 +139,7 @@ because the question this platform exists to answer is not which weaknesses exis
 machine can be trusted to judge. The smallest collections are the most recent: they are where the work
 is now.
 
-<sub>Every figure above was counted from the source tree at <b>v2.746.620</b> on 19 October 2026, by a
+<sub>Every figure above was counted from the source tree at <b>v2.746.621</b> on 19 October 2026, by a
 script that measures them rather than by hand, so the three repositories describing this platform cannot
 drift apart again. Two figures are produced by executing the code rather than reading it, because the two
 disagree: the action catalogue holds 157 entries and a regular expression over the same file counts 165.
