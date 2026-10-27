@@ -33,6 +33,35 @@ Each is now enforced by a test, not by intention.
 - **Nothing is called fixed.** An external tester cannot see a patch. The strongest honest claim
   is that a weakness was not rediscovered using the original method and a stated set of variants.
 
+## A declared gap is a receipt, not a result
+
+Being able to report NOT TESTED is the floor, not the goal. A gap that is reported honestly has
+still not been closed, and a report full of them is a record of work that did not happen. The
+question worth asking of each one is not whether it was stated, but why it arose.
+
+Sorted by cause, they fall into three kinds, and only one of them is about the target:
+
+- **A missing input.** A second account, a privileged and an unprivileged identity, an object the
+  tester legitimately owns, a way to recognise a successful action. These are the large majority.
+  They are not facts about the client's security at all: they are facts about how the assessment
+  was set up, and they belong to the tester to supply.
+- **A limitation of the check.** The question was answerable and the method did not answer it.
+  That is a defect to fix, not a caveat to print.
+- **A property of the target.** A header the server does not implement, a protection that inspects
+  the content of a request rather than its shape, a documented interface that does not exist. These
+  are the only ones that are genuinely about the engagement, and they are stated and left.
+
+The consequence is that readiness is now settled **before** an assessment begins rather than
+reported after it. Each check states what it needs, whether that need is met, and precisely what
+would meet it. An assessment that cannot answer a question is a decision to be taken knowingly at
+the start, not a discovery at the end.
+
+The cost of not doing this is measurable. Two full assessments of one target reported the same
+whole class of authorisation testing as NOT TESTED because a single piece of setup had not been
+supplied. Nothing errored, nothing failed, and every other part of the configuration was correct.
+Both runs simply could not do the thing they had been launched to do, and nobody learned that until
+they had finished.
+
 ## The false-positive problem, and the cost of solving it
 
 This is where most of the engineering time went, and it is the result the platform is actually judged on.

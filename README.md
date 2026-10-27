@@ -6,10 +6,10 @@
 
 **What informed the build of an AI-assisted platform for authorised penetration testing.**
 
-[![Version](https://img.shields.io/badge/platform-v2.746.621-0f172a?style=for-the-badge)](#-the-work)
-[![Modules](https://img.shields.io/badge/offensive_modules-553-0ea5e9?style=for-the-badge&logo=target&logoColor=white)](TOOLS.md)
-[![Gate](https://img.shields.io/badge/behind_the_gate-312-7c3aed?style=for-the-badge)](METHOD.md)
-[![Tests](https://img.shields.io/badge/tests_passing-11%2C198-22c55e?style=for-the-badge)](#)
+[![Version](https://img.shields.io/badge/platform-v2.746.686-0f172a?style=for-the-badge)](#-the-work)
+[![Modules](https://img.shields.io/badge/tool_modules-565-0ea5e9?style=for-the-badge&logo=target&logoColor=white)](TOOLS.md)
+[![Gate](https://img.shields.io/badge/reach_a_live_target-312-7c3aed?style=for-the-badge)](METHOD.md)
+[![Tests](https://img.shields.io/badge/tests_passing-12%2C501-22c55e?style=for-the-badge)](#)
 [![False positives](https://img.shields.io/badge/false_positive_rate-0_to_5%25-16a34a?style=for-the-badge)](METHOD.md)
 [![Sources](https://img.shields.io/badge/sources-246_texts_·_637_domains-f59e0b?style=for-the-badge&logo=readthedocs&logoColor=white)](SOURCES.md)
 
@@ -59,25 +59,45 @@ hosted model anywhere in the loop.
 
 ## 📊 The work
 
-Built between **11 June and 19 October 2026**: 130 days, 2,023 commits, roughly 336,000 lines of code.
+Built between **11 June and 27 October 2026**: 138 days, 2,121 commits, roughly 365,000 lines of code.
 
 <div align="center">
 
 | | | | |
 |---|--:|---|--:|
-| 🧩 **Offensive tool modules** | **553** | 🛡️ Modules behind the authorisation gate | 312 |
+| 🧩 **Reach a live target** | **312** | 📄 Analyse collected material only | 105 |
 | 🧠 Reasoning-engine actions | 157 | ⚙️ Third-party tools driven | 79 |
-| 📐 Core code | 197,043 lines | 🧪 Test code | 139,482 lines |
-| 📁 Test files | 1,109 | ✅ Tests passing | **11,198** |
+| 📦 Tool modules in total | 565 | 🔌 Reachable from a real entry point | 563 |
+| 🧾 Produce a security finding | 405 | 🧰 Utilities, oracles and helpers | 160 |
+| 📐 Core code | 210,641 lines | 🧪 Test code | 154,211 lines |
+| 📁 Test files | 1,176 | ✅ Tests passing | **12,501** |
 
 </div>
+
+**Each figure above states the question it answers, because no single number counts "capabilities"
+honestly.** This page has published two wrong ones. It said 565, the whole tool tree, which counts
+parsers and helpers as arsenal. It was corrected to 312, the modules that pass scope validation -
+and that erases every detector which reads collected material rather than touching a target:
+Active Directory, mobile packages, cloud artefacts, and the source-analysis work that produced
+this project's published vulnerabilities.
+
+So the figures are given as measurements rather than as a headline. 312 modules can reach a live
+target. 405 produce a security finding. 105 produce one without contacting anything, because they
+read what was already collected. The remainder are utilities, oracles and shared helpers, and some
+of those are part of a capability without being one on their own - which is precisely why the
+single number does not exist. Anyone is free to disagree with where the line falls; they cannot be
+misled about where it was drawn.
+
+The same audit reports what the capability figure is worth: 563 of the 565 modules are reachable
+from a real entry point, none fails to import, and none is without a test. Two are not reachable,
+and they are counted here because a capability nobody can invoke is not one.
 
 > [!IMPORTANT]
 > **Measured false-positive rate: 0 to 5 per cent**, with one authenticated engagement producing 63
 > findings and zero false positives. **222 detectors** are pinned in the test suite as provably
 > silent on a benign input. Reaching that took longer than reaching coverage.
 
-Test code is 71% of the volume of the code it protects. That ratio is deliberate: in this domain a
+Test code is 73% of the volume of the code it protects. That ratio is deliberate: in this domain a
 test that proves a detector behaves is part of the deliverable, not overhead.
 
 ### How it grew
@@ -87,29 +107,34 @@ Counted from the commit tree at each month end, not estimated.
 ```mermaid
 %%{init: {"theme": "base", "themeVariables": {"xyChart": {"plotColorPalette": "#0ea5e9, #7c3aed"}}}}%%
 xychart-beta
-    title "Offensive modules (bar) and test files (line), by month end"
-    x-axis ["30 Jun", "31 Jul", "31 Aug", "30 Sep", "19 Oct"]
+    title "Tool modules (bar) and test files (line), by month end"
+    x-axis ["30 Jun", "31 Jul", "31 Aug", "30 Sep", "19 Oct", "27 Oct"]
     y-axis "Count" 0 --> 1200
-    bar [47, 377, 409, 492, 553]
-    line [142, 515, 671, 905, 1109]
+    bar [47, 377, 409, 492, 553, 565]
+    line [142, 515, 671, 905, 1109, 1176]
 ```
 
 <div align="center">
 
-| Month end | Offensive modules | Test files | Commits | Tests per module |
+| Month end | Tool modules | Test files | Commits | Tests per module |
 |---|--:|--:|--:|--:|
 | 30 June 2026 | 47 | 142 | 199 | 3.0 |
 | 31 July 2026 | 377 | 515 | 826 | 1.4 |
 | 31 August 2026 | 409 | 671 | 1,029 | 1.6 |
 | 30 September 2026 | 492 | 905 | 1,580 | 1.8 |
-| **19 October 2026** | **553** | **1,109** | **2,023** | **2.0** |
+| 19 October 2026 | 553 | 1,109 | 2,023 | 2.0 |
+| **27 October 2026** | **565** | **1,176** | **2,121** | **2.1** |
 
 </div>
 
 The July step is the month the detector battery was built. What the later months add is not breadth but
-proof: between September and October the module count rose by 12 per cent while the test files rose by
-22 per cent, which is the shape intended. The last column is the one worth watching, because a platform
+proof: between September and October the module count rose by 15 per cent while the test files rose by
+30 per cent, which is the shape intended. The last column is the one worth watching, because a platform
 that adds detectors faster than it can show them behaving is accumulating a liability, not coverage.
+
+The final week is the clearest example of that shape: 12 modules added against 67 test files. Almost
+none of that week's work was new coverage. It was finding that existing coverage had been reporting
+results it had not earned, and the tests are the record of each one being disproved.
 
 ### Where the reading went
 
@@ -121,7 +146,7 @@ that adds detectors faster than it can show them behaving is accumulating a liab
 | Practitioner guides | `██████████████` | **47** | 19% |
 | Academic survey bundle | `██████████` | **35** | 14% |
 | Bug-bounty practice | `██████` | **22** | 9% |
-| API authorisation | `█████` | **16** | 7% |
+| API authorisation | `█████` | **16** | 6% |
 | LLM security | `███` | **9** | 4% |
 | Assessment practice | `█` | **4** | 2% |
 | LLM-assisted triage | `█` | **4** | 2% |
@@ -130,7 +155,8 @@ that adds detectors faster than it can show them behaving is accumulating a liab
 | Certification | `█` | **2** | 1% |
 | Hardening | `█` | **2** | 1% |
 | Authorisation taxonomy and reach | `█` | **2** | 1% |
-| **Total** | | **246** | |
+| Supply-chain advisory corpus | `█` | **1** | 0% |
+| **Total** | | **247** | |
 
 </div>
 
@@ -139,7 +165,7 @@ because the question this platform exists to answer is not which weaknesses exis
 machine can be trusted to judge. The smallest collections are the most recent: they are where the work
 is now.
 
-<sub>Every figure above was counted from the source tree at <b>v2.746.621</b> on 19 October 2026, by a
+<sub>Every figure above was counted from the source tree at <b>v2.746.684</b> on 27 October 2026, by a
 script that measures them rather than by hand, so the three repositories describing this platform cannot
 drift apart again. Two figures are produced by executing the code rather than reading it, because the two
 disagree: the action catalogue holds 157 entries and a regular expression over the same file counts 165.
@@ -154,9 +180,9 @@ be checked against the page itself.</sub>
 
 | | Document | Contents |
 |:--:|---|---|
-| 📖 | **[SOURCES.md](SOURCES.md)** | 246 books, papers and guides · 637 external domains · 17 specifications read in the original |
+| 📖 | **[SOURCES.md](SOURCES.md)** | 247 books, papers and guides · 637 external domains · 17 specifications read in the original |
 | 🧭 | **[METHOD.md](METHOD.md)** | How the work was done: the rules, and the failure each one prevents |
-| 🧰 | **[TOOLS.md](TOOLS.md)** | The 553 modules, and the open-source tools they drive |
+| 🧰 | **[TOOLS.md](TOOLS.md)** | The 312 offensive capabilities, and the open-source tools they drive |
 | 🎯 | **[COVERAGE.md](COVERAGE.md)** | What the platform tests for, by weakness class |
 
 </div>
@@ -178,7 +204,7 @@ this repository, and it is not intended to be.
 establishes coverage. The way the platform tests them is not described, and neither are payload
 logic, bypass families or verdict rules.
 
-**💾 The platform's own code.** Its 553 modules are counted, never named or described: no source,
+**💾 The platform's own code.** Its 565 tool modules are counted, never named or described: no source,
 no logic, no thresholds, no sequencing, no decision rules.
 
 **🔗 Orchestration.** The 79 third-party tools are listed because they are public software anyone

@@ -1,6 +1,6 @@
 # Sources
 
-246 books, papers and guides; 637 distinct external sources, counted by domain, cited across the research; 17
+247 books, papers and guides; 637 distinct external sources, counted by domain, cited across the research; 17
 specifications read in the original. Assembled between July and October 2026.
 
 ---
@@ -22,6 +22,7 @@ specifications read in the original. Assembled between July and October 2026.
 | LLM-assisted triage | 4 | Filtering static-analysis findings with a model, and where that filtering fails |
 | Authorisation taxonomy and reach | 2 | How authorisation flaws are classified and priced, and what makes one reachable at scale |
 | Platform ecosystem research | 3 | A single application ecosystem's plugin corpus, its advisory record and its disclosure rules |
+| Supply-chain advisory corpus | 1 | Malicious-package advisories across software ecosystems, read for where screening effort belongs |
 
 ## Books and canonical texts
 
@@ -239,6 +240,53 @@ against an instance the operator owns, never against somebody else's installatio
 
 The disclosure rules shaped policy more than code. Reports produced without observation are treated as
 fabrication and carry escalating bans, so nothing reaches a submission without evidence behind it.
+
+## Added since October 2026: reading a corpus without being misled by it
+
+A public advisory corpus for software supply-chain compromise was read to decide where screening
+effort belongs. It produced one usable result and one lesson about corpora that mattered more.
+
+The usable result is that volume is not distributed as the industry discusses it. Across the corpus,
+two ecosystems account for the overwhelming majority of malicious-package advisories; two others that
+are frequently named alongside them carry a double-digit number of records between them. The obvious
+confound was checked first, because "this ecosystem has no malware" and "nobody files advisories for
+this ecosystem here" are indistinguishable from a count alone. The corpus carries both of the quiet
+ecosystems as first-class, so the near-absence is a real difference in volume rather than a gap in
+coverage. The conclusion was to add depth where the records are, not breadth across ecosystems.
+
+The lesson is the reason this section exists. One month in the corpus held roughly fifty times the
+advisories of its neighbours, which reads as a mass campaign and would be reported as one. It is an
+artefact of how the data arrives: that month's records land on a handful of batch days with ordinary
+volumes on every other day, and virtually all of them carry a single upstream credit line, while the
+rest of the year carries it on about four fifths. The descriptions are not duplicates, so it is not
+one campaign replicated either. **A publication date is not an incident date.** Any analysis that
+treats the two as the same overstates that month by a factor of about fifty, and the correction is to
+deduplicate by upstream source and use the campaign's own dates.
+
+This is the same failure the method pages describe in a different setting: a count that is accurate
+about its input and wrong about the world. It is recorded here because the figure was striking
+enough to publish, and checking it took one query.
+
+## Added since October 2026: beliefs that were wrong, and what corrected them
+
+Five positions the platform had been working from were tested against primary sources and did not
+survive. They are listed because the cost of each was real work aimed in the wrong direction.
+
+- **A protection believed to close a whole injection class closes it only in one context.** The
+  reasoning held for values used as quoted strings and not for values used as numbers or as lists of
+  numbers. The ecosystem's own published advisory for exactly that pattern is what settled it, and it
+  reopened a set of candidates previously written off.
+- **A disclosure programme's payment model had been read as a contest for a few places.** Its own
+  published rules, revised during the month, describe a guaranteed pool divided by contribution
+  share, and they now reduce payment in proportion to a researcher's rejection rate. Volume
+  submission is penalised directly, which inverts the strategy that had been assumed.
+- **A held finding was out of scope at the programme it was being prepared for**, which its own
+  published exclusions stated plainly and nobody had checked.
+- **The effort had been aimed at the cheapest tier of a market.** Published figures put the core of
+  the ecosystem at roughly twenty times the rate paid for the extensions that had been the focus.
+- **Public proof-of-concept repositories carry fabricated identifiers.** Entries were found that
+  describe weaknesses under identifiers no authoritative record contains. Anything ingested from such
+  a source is now cross-checked against the authoritative record before it is believed.
 
 ## Specifications read in the original
 

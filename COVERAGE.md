@@ -179,8 +179,8 @@ and why.
 ## When a clean result is not a clean result
 
 The failure this platform works hardest against is a detector that is truthful about its input and
-wrong about the target. Four of them were found and closed by testing checks that reported nothing,
-rather than by reading their output.
+wrong about the target. Eight of them have been found and closed by testing checks that reported
+nothing, rather than by reading their output.
 
 **A scope pattern is not a fetchable address.** An engagement that authorises a path and everything
 beneath it expresses that with a wildcard. Handed to a crawler as though it were an address, the
@@ -206,6 +206,43 @@ one filter that enforced this has been made structural rather than conventional.
 across parallel lanes reported only one of them, so a correct run appeared to produce nothing. The
 reporting surface now accounts for every lane, and no lane that finishes early can speak for the
 whole.
+
+**Who produced an answer is not who decided it.** A target behind a content delivery network can be
+configured to replace the application's own error responses with the network's standard error page.
+A check that asks "did this response come from the application or from the infrastructure in front
+of it" then gets a true answer to the wrong question: the page really was produced by the
+infrastructure, and the decision behind it may still have been the application's. Read one way, a
+refusal by the network is recorded as the application enforcing a boundary it never saw. Read the
+other way, an application correctly refusing an unauthorised request is recorded as a coverage gap.
+Both errors were present in the same week, and the second was introduced while fixing the first. The
+resolution is that the response alone cannot settle it: the question is answered by establishing
+separately that the identity being tested reaches the application at all, and by learning which
+response codes a given target rewrites before trusting any of them.
+
+**An exposure question and an enforcement question read the same refusal differently.** Asking
+whether an anonymous visitor can read something is a question about what is reachable, and the
+network in front of the application is part of the defence: a refusal is an honest negative, because
+a real attacker meets the same refusal. Asking whether the application enforces a boundary is a
+question about the application's own logic, and the same refusal tells you nothing, because it may
+have been produced before the application was consulted. The same bytes, from the same host, mean
+opposite things depending on which question was asked. Checks are now explicit about which they are.
+
+**A verdict that cannot fail never reports its own absence.** A check that decides whether a
+sensitive action proceeded without re-authentication needs to know what a successful action looks
+like on that target. Where that was not supplied, the comparison it performed could never return
+true, so every action it examined was reported as protected. Nothing errored, and no result was
+missing: the check was structurally incapable of producing a finding, and therefore structurally
+incapable of reporting that it had not run. Preconditions that cannot be met are now stated as
+such, and where the information can be derived from the target's own responses the check derives it
+rather than giving up.
+
+**A guard must not be the thing it guards against.** A check that detects a forbidden character has
+to contain that character. A list of terms that must not appear has to spell them. A test that
+forbids a particular form of attribution has to quote it. Each of these makes the guard itself the
+largest source of what it is meant to prevent, and the usual workaround, exempting the guard from
+its own rule, hides real instances alongside the false one. Eight cases have now been found in this
+codebase. They are resolved by moving the sensitive content out of the repository entirely, or by
+expressing it in a form that carries the same meaning without the literal.
 
 Each of these produced a confident nothing. A clean result from a starved check reads, in a report,
 exactly like a clean result from a tested target, and that is the distinction the whole method exists
