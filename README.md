@@ -8,8 +8,8 @@
 
 [![Version](https://img.shields.io/badge/platform-v2.746.686-0f172a?style=for-the-badge)](#-the-work)
 [![Modules](https://img.shields.io/badge/tool_modules-565-0ea5e9?style=for-the-badge&logo=target&logoColor=white)](TOOLS.md)
-[![Gate](https://img.shields.io/badge/reach_a_live_target-312-7c3aed?style=for-the-badge)](METHOD.md)
-[![Tests](https://img.shields.io/badge/tests_passing-12%2C501-22c55e?style=for-the-badge)](#)
+[![Gate](https://img.shields.io/badge/reach_a_live_target-311-7c3aed?style=for-the-badge)](METHOD.md)
+[![Tests](https://img.shields.io/badge/tests_passing-12%2C536-22c55e?style=for-the-badge)](#)
 [![False positives](https://img.shields.io/badge/false_positive_rate-0_to_5%25-16a34a?style=for-the-badge)](METHOD.md)
 [![Sources](https://img.shields.io/badge/sources-246_texts_·_637_domains-f59e0b?style=for-the-badge&logo=readthedocs&logoColor=white)](SOURCES.md)
 
@@ -59,34 +59,54 @@ hosted model anywhere in the loop.
 
 ## 📊 The work
 
-Built between **11 June and 27 October 2026**: 138 days, 2,121 commits, roughly 365,000 lines of code.
+Built between **11 June and 27 October 2026**: 138 days, 2,127 commits, roughly 365,000 lines of code.
 
 <div align="center">
 
 | | | | |
 |---|--:|---|--:|
-| 🧩 **Reach a live target** | **312** | 📄 Analyse collected material only | 105 |
+| 🧩 **Offensive capabilities** | **444** | 🧰 Utilities, oracles and helpers | 116 |
+| ↳ reach a live target | 311 | ↳ analyse collected material only | 133 |
 | 🧠 Reasoning-engine actions | 157 | ⚙️ Third-party tools driven | 79 |
 | 📦 Tool modules in total | 565 | 🔌 Reachable from a real entry point | 563 |
-| 🧾 Produce a security finding | 405 | 🧰 Utilities, oracles and helpers | 160 |
-| 📐 Core code | 210,641 lines | 🧪 Test code | 154,211 lines |
-| 📁 Test files | 1,176 | ✅ Tests passing | **12,501** |
+| 📐 Core code | 210,641 lines | 🧪 Test code | 154,401 lines |
+| 📁 Test files | 1,177 | ✅ Tests passing | **12,536** |
 
 </div>
 
 **Each figure above states the question it answers, because no single number counts "capabilities"
-honestly.** This page has published two wrong ones. It said 565, the whole tool tree, which counts
-parsers and helpers as arsenal. It was corrected to 312, the modules that pass scope validation -
-and that erases every detector which reads collected material rather than touching a target:
-Active Directory, mobile packages, cloud artefacts, and the source-analysis work that produced
-this project's published vulnerabilities.
+honestly.** This page has published three wrong ones, and each is left on the record below rather
+than quietly replaced.
 
-So the figures are given as measurements rather than as a headline. 312 modules can reach a live
-target. 405 produce a security finding. 105 produce one without contacting anything, because they
-read what was already collected. The remainder are utilities, oracles and shared helpers, and some
-of those are part of a capability without being one on their own - which is precisely why the
-single number does not exist. Anyone is free to disagree with where the line falls; they cannot be
-misled about where it was drawn.
+It first said 565, the whole tool tree, which counts parsers and helpers as arsenal. It was
+corrected to 312, the modules that pass scope validation - and that erases every detector which
+reads collected material rather than touching a target: Active Directory, mobile packages, cloud
+artefacts, and the source-analysis work that produced this project's published vulnerabilities.
+
+**The third error was the interesting one, because it was invisible.** The census behind the
+earlier split asked two questions of each module: does it construct a finding object, and does it
+call the scope gate. Both are facts about how a module is *written*, not about what it *proves*. A
+detector that reads collected source offline does neither - it contacts nothing, so it never
+gates, and it hands a human a candidate to review rather than emitting a finding of its own. A
+whole class of detectors was therefore filed as helper code, including the source-analysis arsenal
+that earned this project's vulnerability credits. The census now also asks whether a module is
+something an operator can actually run, which is the project's own working definition of a live
+capability. That correction moved the count from 417 to **444**, and the offline half from 105 to
+**133**.
+
+A fourth figure moved by one, for a reason worth stating because it is the same mistake in
+miniature: the gate census matched the gate's name anywhere in a file, so a module that *imports*
+the gate and never calls it was counted as gated. **An import is not a call.** The gated figure is
+311, not the 312 this page carried. The direction matters - that error inflates the authorised
+surface, and it would hide a module that genuinely reaches a target with its gate missing, which
+is the one thing this architecture must never get wrong.
+
+So the figures are given as measurements rather than as a headline, and the two halves now sum to
+the whole: **311 + 133 = 444**. The earlier split did not add up, and nobody noticed for weeks.
+The remainder are utilities, oracles and shared helpers, and some of those are part of a
+capability without being one on their own - which is precisely why the single number does not
+exist. Anyone is free to disagree with where the line falls; they cannot be misled about where it
+was drawn.
 
 The same audit reports what the capability figure is worth: 563 of the 565 modules are reachable
 from a real entry point, none fails to import, and none is without a test. Two are not reachable,
@@ -111,7 +131,7 @@ xychart-beta
     x-axis ["30 Jun", "31 Jul", "31 Aug", "30 Sep", "19 Oct", "27 Oct"]
     y-axis "Count" 0 --> 1200
     bar [47, 377, 409, 492, 553, 565]
-    line [142, 515, 671, 905, 1109, 1176]
+    line [142, 515, 671, 905, 1109, 1177]
 ```
 
 <div align="center">
@@ -123,7 +143,7 @@ xychart-beta
 | 31 August 2026 | 409 | 671 | 1,029 | 1.6 |
 | 30 September 2026 | 492 | 905 | 1,580 | 1.8 |
 | 19 October 2026 | 553 | 1,109 | 2,023 | 2.0 |
-| **27 October 2026** | **565** | **1,176** | **2,121** | **2.1** |
+| **27 October 2026** | **565** | **1,177** | **2,127** | **2.1** |
 
 </div>
 
@@ -182,7 +202,7 @@ be checked against the page itself.</sub>
 |:--:|---|---|
 | 📖 | **[SOURCES.md](SOURCES.md)** | 247 books, papers and guides · 637 external domains · 17 specifications read in the original |
 | 🧭 | **[METHOD.md](METHOD.md)** | How the work was done: the rules, and the failure each one prevents |
-| 🧰 | **[TOOLS.md](TOOLS.md)** | The 312 offensive capabilities, and the open-source tools they drive |
+| 🧰 | **[TOOLS.md](TOOLS.md)** | The 444 offensive capabilities, and the open-source tools they drive |
 | 🎯 | **[COVERAGE.md](COVERAGE.md)** | What the platform tests for, by weakness class |
 
 </div>

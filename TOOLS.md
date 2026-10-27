@@ -1,8 +1,9 @@
 # Toolchain
 
-**NullCadre is 312 offensive capabilities of its own code**, each behind the authorisation gate
-because they can reach a live target, driven by a catalogue of 157 read-only action specifications.
-That is the platform.
+**NullCadre is 444 offensive capabilities of its own code**, driven by a catalogue of 157
+read-only action specifications. 311 of them reach a live target and sit behind the
+authorisation gate; the other 133 decide what they decide from material already collected, and
+contact nothing. That is the platform.
 
 Beneath those sit the **79 third-party binaries** listed on this page. They were read, evaluated and wrapped behind
 a single interface so that each exposes version, health, capabilities, structured output, errors,
@@ -37,9 +38,10 @@ reports nothing, and nothing reads exactly like a clean result.
 
 </div>
 
-The platform's own modules outnumber these by seven to one, and **312 of its 553 sit behind the
-authorisation gate** because they can reach a live target. The remainder parse, correlate, score and
-report, and never touch anything.
+The platform's own modules outnumber these by seven to one, and **311 of its 565 sit behind the
+authorisation gate** because they can reach a live target. A further 133 are offline analysis:
+they read collected source and artefacts and contact nothing, which is why a gate-based count
+alone understates the arsenal. The remainder parse, correlate, score and report.
 
 | Area | Tools |
 |---|---|
