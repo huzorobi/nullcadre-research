@@ -7,6 +7,11 @@ specifications read in the original. Assembled between July and October 2026.
 
 ## Composition
 
+*The texts figure quoted above and on the badge is the sum of the Items column below: it is
+reproducible by adding up this table, and is stated nowhere else. The badge and the body
+disagreed by one until 2026-10-27 - 246 against 247 - which is what a figure kept in three
+places does.*
+
 | Collection | Items | Coverage |
 |---|---|---|
 | AI and cybersecurity | 97 | Autonomous penetration testing, LLM agents, the offensive-AI threat landscape |
